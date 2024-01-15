@@ -3,9 +3,8 @@ const md = require('./accounts-middleware')
 const Account = require('./accounts-model')
 
 router.get('/', async (req, res, next) => {
-  // DO YOUR MAGIC
   try {
-    const accounts = await Account.getAll
+    const accounts = await Account.getAll()
     res.json(accounts)
   } catch (err) {
     next(err)
