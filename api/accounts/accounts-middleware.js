@@ -18,10 +18,11 @@ exports.checkAccountPayload = async (req, res, next) => {
   }  else if (budget < 0 || budget > 1000000) {
     res.status(400).json({
       message: 'budget of account is too large or too small'
-    })
+    }) 
+  } else {
+    next()
   }
 
-  next()
 }
 
 exports.checkAccountNameUnique = async (req, res, next) => {
@@ -54,5 +55,4 @@ exports.checkAccountId = async (req, res, next) => {
   } catch (err) {
     next(err)
   }
-  next()
 }
